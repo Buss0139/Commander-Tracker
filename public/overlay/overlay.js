@@ -46,10 +46,10 @@ overlayApp.controller('mainController', ['$scope', '$window', '$location', 'DBSe
     $scope.playerStyle = new Array(playerCount);
 
     const colors = [
-      {border: '#1a237e', background: '#3d5afe'},
-      {border: '#9a0007', background: '#d32f2f'},
-      {border: '#005005', background: '#2e7d32'},
-      {border: '#790e8b', background: '#ab47bc'},
+      {border: '#1a237e', background: 'rgb(248,231,185)', stroke:'.1em tan'},
+      {border: '#9a0007', background: 'rgb(179,206,234)', stroke:'.1em blue'},
+      {border: '#005005', background: 'rgb(166,159,157)', stroke:'.1em black'},
+      {border: '#790e8b', background: 'rgb(235,159,130)', stroke:'.1em red'},
       {border: '#b1bfca', background: '#e3f2fd'},
       {border: '#cabf45', background: '#fff176'}
     ];
@@ -57,25 +57,10 @@ overlayApp.controller('mainController', ['$scope', '$window', '$location', 'DBSe
     for(let i=0; i<playerCount; i++){
       $scope.playerStyle[i] = {
         height: cardHeightPercent + 'vh',
-        border: '8px solid ' + colors[i].border,
-        "background-color": colors[i].background
+        // border: '8px solid ' + colors[i].border,
+        "background-color": colors[i].background,
+        "-webkit-text-stroke": colors[i].stroke
       };
-      //Try to get commander image for each player, use fallback if it cannot be found
-      // let commanderName = $scope.playerData[i].commander;
-      //
-      // DBService.getImageURL(commanderName).then((imgUrl) => {
-      //   $scope.playerStyle[i].backgroundImage = `url(${imgUrl})`;
-      //   $scope.playerStyle[i].backgroundSize = '50%';
-      //   $scope.playerStyle[i].backgroundPosition = 'center top';
-      //   // $scope.playerStyle[i] = {
-      //   //   height: '100%',
-      //   //   "background": `no-repeat top center/100% url(${imgUrl})`
-      //   // }
-      // })
-      // .catch((error) => {
-      //   console.log(error);
-      //   console.log(`Could not set commander image for ${commanderName}.  Using fallback`);
-      // });
     }
   }; //End setStyles
 

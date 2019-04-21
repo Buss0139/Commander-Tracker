@@ -1,4 +1,50 @@
+/* p, h1, h2, h3, h4, h5, h6 {
+  margin:0;
+} */
 
+#toolbar{
+  display:flex;
+  height: 25vmin;
+  width: 100vw;
+
+}
+
+.navSection {
+  align-self: center;
+  display: grid;
+  padding-left: 3vw;
+}
+
+.closeControl{
+  z-index: 10;
+  display:grid;
+  position: absolute;
+  top: 25vh;
+  left: 85vw;
+  background-color: white;
+  padding: 0vmin 1vmin 1vmin 1vmin;
+  border-radius: 0vmin 0vmin 1vmin 1vmin;
+}
+
+
+
+
+/* small devices */
+@media screen and (max-width:960px){
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* old code
 .toolBar {
   height: 50px;
 }
@@ -24,12 +70,12 @@
 }
 
 #toolBarHeader.closed {
-  top: calc(-50px - 4px);  /* Transition Property, .navSection height + border-bottom */
+  top: calc(-50px - 4px);  /* Transition Property, .navSection height + border-bottom
 
 }
 
 #toolBarHeader.open {
-  top: 0%;  /* Transition Property */
+  top: 0%;  /* Transition Property
 }
 
 #toggleButton {
@@ -50,8 +96,8 @@
 }
 
 .navSection {
-  display: table;
-  /* margin: auto; */
+  /* display: table;
+  /* margin: auto;
   margin-left: 25px;
   height: 50px;
 }
@@ -79,4 +125,4 @@
 
 .toolBar .massModifyCheckbox {
   font-size: 1.25em;
-}
+} */

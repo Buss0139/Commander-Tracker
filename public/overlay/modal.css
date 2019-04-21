@@ -1,4 +1,42 @@
 
+
+
+.modalScreen {
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.66);
+  
+}
+
+.modalContainer {
+  width: 80vmin;
+  height: 80vmin;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  margin: auto;
+  color: white;
+  background-color: #4f5b62;
+}
+
+.modalBody{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "plus minus input"
+  
+}
+input{
+  grid-area: input;
+}
+
+
+
+/* old code
 .modalScreen {
   z-index: 10;
   display: flex;
@@ -89,4 +127,4 @@
   margin: auto;
   color: black;
   background-color: #a7c0cd;
-}
+} */

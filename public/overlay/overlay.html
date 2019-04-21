@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>Commander Overlay</title>
 
-    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap-glyphicons.css">
     <link rel="stylesheet" href="./overlay/overlay.css">
     <link rel="stylesheet" href="./overlay/modal.css">
@@ -14,44 +14,51 @@
   </head>
   <body ng-controller="mainController">
 
-    <div id="infoContainer">
+    <div id="infoContainer" class="container">
+      
       <tool-bar class="toolBar"></tool-bar>
 
-      <div class="player d-flex" ng-style="playerStyle[$index]" ng-repeat="player in playerData">
-        <div ng-style="playerStyle[$index].commanderStyle" class="m-auto d-table-cell col-4 col-sm-6 col-md-4">
-          <h2 class="pName"><editable type="text" obj="player" prop="name"/></h2>
-          <h3 class="pCommander"><editable type="text" obj="player" prop="commander" /></h3>
+      <div class="cardViewer">
+
+
+      </div>
+
+      <div class="players">
+      <div class="player" ng-style="playerStyle[$index]" ng-repeat="player in playerData">
+
+        <div class="names">
+          <h2 class="pName"><editable type="text" obj="player" prop="name" /></h2>
+          <p class="pCommander"><editable type="text" obj="player" prop="commander" /></p>
         </div>
 
-        <div class="cmdrInfo col-4 col-sm-3">
-          <div class="lifeContainer">
-            <div class="lifeArrow up" ng-click="applyLifeChange($index, 1)"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></div>
-            <div class="infoWrapper">
-              <h1 class="m-auto"><editable type="number" obj="player" prop="life" /></h1>
-            </div>
-            <div class="lifeArrow down" ng-click="applyLifeChange($index, -1)"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></div>
-          </div>
-
-          <div class="castContainer">
-            <div class="lifeArrow up" ng-click="applyCastChange($index, 1)"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></div>
-            <div class="infoWrapper">
-              <h1 class="cmdrCast m-auto d-table-cell"><editable type="number" obj="player" prop="castCount" /></h1>
-            </div>
-            <div class="lifeArrow down" ng-click="applyCastChange($index, -1)"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></div>
-          </div>
+        <div class="life">       
+          <h1 class=""><editable type="number" obj="player" prop="life" /></h1>
         </div>
 
-        <div class="d-flex col-4 col-sm-3 col-md-5">
-          <div class="row m-auto">
+        <div class="life-arrows">
+
+          <div class="arrow up" ng-click="applyLifeChange($index, 1)"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></div>                   
+          <div class="arrow down" ng-click="applyLifeChange($index, -1)"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></div>
+        </div>
+
+        <div class="cast-counter">
+            <h1 class="cmdrCast"><editable type="number" obj="player" prop="castCount" /></h1>
+        </div>
+
+        <div class="cast-arrows">
+          <div class="arrow up" ng-click="applyCastChange($index, 1)"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></div>
+          <div class="arrow down" ng-click="applyCastChange($index, -1)"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></div>
+        </div>
+
+        <div class="commanderdamage">
             <div ng-repeat="opponent in player.damage track by $index" class="justify-content-between d-inline-flex d-md-table-cell col-12 d-md-block col-md-{{12 / player.damage.length}}">
-              <h5 class="mb-0 pb-0 text-center font-weight-bold">{{getNameByID(opponent.id)}}</h5>
-              <div>
-              </div>
-              <h5 class="mb-0 ml-2 ml-md-0 pb-0 text-center"><editable type="number" obj="opponent" prop="damage" />/21</h5>
+              <h5 class="commander"><editable type="number" obj="opponent" prop="damage" />/21</h5>
+              <h5 class="commander">{{getNameByID(opponent.id)}}</h5>
+      
+              
             </div>
-          </div>
         </div>
-
+      </div>
       </div>   <!-- End Player ng-repeat -->
     </div>  <!-- End infoContainer -->
 

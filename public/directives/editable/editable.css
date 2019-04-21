@@ -9,9 +9,9 @@
 
 .editable:hover {
   transition: .25s;
-  background-color: rgb(48, 190, 215);
+  background-color: rgba(255, 255, 255, .3);
   border-radius: 5px;
-  box-shadow: -2px -2px 5px 1px rgb(0, 0, 0);
+  box-shadow: 2px 2px -5px -1px rgba(0, 0, 0,.3);
 }
 
 
